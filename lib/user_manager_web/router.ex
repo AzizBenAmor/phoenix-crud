@@ -18,6 +18,9 @@ defmodule UserManagerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/users", UserLive.Index, :index
+    live "/users/new", UserLive.Index, :new
+    live "/users/:id/edit", UserLive.Index, :edit
   end
 
   # Other scopes may use custom stacks.
