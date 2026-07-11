@@ -8,6 +8,7 @@ defmodule UserManager.Repo.Migrations.CreateUsers do
       add :phone, :string, null: false
       timestamps()
     end
+
     create index(:users, [:email], unique: true)
   end
 end
