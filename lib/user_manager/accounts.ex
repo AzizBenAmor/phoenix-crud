@@ -29,4 +29,12 @@ defmodule UserManager.Accounts do
   def get_user(id) do
     Repo.get(User, id)
   end
+
+  def get_user!(id) do
+    Repo.get!(User, id)
+  end
+
+  def change_user(user, attrs \\ %{}) do
+    User.changeset(user, attrs)
+  end
 end
