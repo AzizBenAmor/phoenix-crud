@@ -5,12 +5,12 @@ defmodule UserManagerWeb.UserLive.Index do
   alias UserManager.Accounts.User
 
   def mount(_params, _session, socket) do
-    users = Accounts.list_users()
-    {:ok, assign(socket, :users, users)}
+    {:ok, assign(socket, :users , Accounts.list_users())}
   end
 
   def render(assigns) do
     ~H"""
+    <Layouts.app flash={@flash}>
     <div class="space-y-6">
       <div class="flex items-center justify-between">
         <h1 class="text-2xl font-bold">Users</h1>
@@ -46,6 +46,7 @@ defmodule UserManagerWeb.UserLive.Index do
         </:action>
       </.table>
     </div>
+    </Layouts.app>
     """
   end
 
